@@ -1,15 +1,30 @@
-# 赛福托管钱包API Node-SDK  
+# 赛福托管钱包API JAVA-SDK  
 
 ### 安装SDK
 
+
+> 下载源码包,把`com`文件夹放入项目中  
+> 可能需要在`pom.xml`引入下面依赖 `import com.alibaba.fastjson.JSON;`
+```
+<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+<dependency>
+  <groupId>com.alibaba</groupId>
+  <artifactId>fastjson</artifactId>
+  <version>1.2.47</version>
+</dependency>
+```
     
 # 例子
 
 #### 创建sdkApi
- ```java
-//创建用户实例
-User user = new User();
+ ```java             
+import com.alibaba.fastjson.JSON;
+import com.safecustody.sdk.Sdk;//创建用户实例
+import com.safecustody.sdk.User;User user = new User();
+import com.safecustody.sdk.data.Resp.RespQueryCoinBody;
 
+public class App {
+    public static void main(String[] args) {
 //appid
 user.setAppid("");
 
@@ -24,6 +39,9 @@ Sdk sdk = new Sdk(user);
 
 //host
 sdk.setHost("");
+
+...
+}
 ``` 
 
 #### [单个币种查询](https://github.com/chainlife-doc/wallet-api/blob/master/%E5%8D%95%E5%B8%81%E7%A7%8D%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2.md)
