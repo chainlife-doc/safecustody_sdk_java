@@ -253,7 +253,7 @@ reqQueryWithdrawHistory.setChain("trx");
 reqQueryWithdrawHistory.setCoin("trx");                                                            
 //你的用户id
 reqQueryWithdrawHistory.setSubuserid("26");                                                        
-//从哪个充值序号开始，值大于等于1,查询结果包含fromId对应的充值记录   
+//从哪个提币序号开始，值大于等于1,查询结果包含fromId对应的提币记录   
 reqQueryWithdrawHistory.setFromid(1);    
 //最多查询多少条记录，包含fromid这条记录                                                          
 reqQueryWithdrawHistory.setLimit(100);                                                             
