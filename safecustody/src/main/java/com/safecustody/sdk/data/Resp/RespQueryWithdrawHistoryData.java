@@ -61,7 +61,7 @@ public class RespQueryWithdrawHistoryData {
 
 
     /**
-     * 提币状态: 1=准备发送,2=发送中,3=发送成功,4=发送失败,5=发送已取消
+     * 提币状态: 0=无效状态,1=准备发送,2=发送中,3=发送成功,4=发送失败,5=待确认
      */
     private int status;
 
@@ -72,6 +72,11 @@ public class RespQueryWithdrawHistoryData {
     @JSONField(name = "status_desc")
     private String statusDesc;
 
+    /**
+     * api访问公钥
+     */
+    @JSONField(name = "api_key")
+    private String apiKey="";
 
     /**
      * 链上的交易ID
@@ -200,5 +205,13 @@ public class RespQueryWithdrawHistoryData {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
     }
 }

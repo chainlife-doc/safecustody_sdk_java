@@ -8,21 +8,50 @@ import com.safecustody.sdk.data.comm.RespData;
 import java.util.HashSet;
 
 /**
- * Hello world!
+ * 有关身份验证(token加密):
+ * 使用SDK不用主动加密了,程序内部已经做好了处理,只需要传入SECRETKEY即可
+ * 提币签名(sign验证):
+ * 使用SDK不用主动加密了,程序内部已经做好了处理
  */
 public class example {
     public static void main(String[] args) {
+
+        //创建user
         User user = new User();
+
+        //对应商户后台APPID
+        //用户身份ID, 一个唯一的随机字符串
         user.setAppid("");
+
+        //对应商户后SECRETKEY
+        //用来加密token的私钥
         user.setSalt("");
+
+        //分配的用户id
         user.setUserid("");
 
+        //对应商户后台APIKEY
+        //api访问公钥
+        user.setApiKey("");
+
+        ///////////////
+        ///////////////
+
+
+        //创建一个sdk
         Sdk sdk = new Sdk(user);
+
+        //TODO 请向管理员索取
         sdk.setHost("");
+
+        //////////////////////////////
+        ///////以下是请求的方法/////////
+        /////////////////////////////
 
         //-------------
         //单个币种查询
         //-------------
+
         ReqQueryCoin queryCoin = new ReqQueryCoin();
         queryCoin.setCoin("btc");
         //TODO 调用api
@@ -35,9 +64,11 @@ public class example {
         System.out.println(JSON.toJSONString(respQueryCoinBody));
 
 
+
         //-------------
         //查询币种公共信息
         //-------------
+
         //TODO 调用api
         RespQueryCoinBody respQueryCoinBodys = sdk.QueryCoin();
         //TODO 判断错误
@@ -97,9 +128,10 @@ public class example {
         //------------
         //获取充值记录
         //------------
+
         ReqGetDepositHistory reqGetDepositHistory = new ReqGetDepositHistory();
-        reqGetDepositHistory.setChain("trx");
-        reqGetDepositHistory.setCoin("trx");
+        reqGetDepositHistory.setChain("vsys");
+        reqGetDepositHistory.setCoin("vsys");
         reqGetDepositHistory.setSubuserid("26");
         //TODO 调用api
         RespGetDepositHistoryBody respGetDepositHistoryBody = sdk.GetDepositHistory(reqGetDepositHistory);
@@ -114,6 +146,7 @@ public class example {
         //------------
         //内部价地址查询
         //------------
+
         ReqQueryIsInternalAddr reqQueryIsInternalAddr = new ReqQueryIsInternalAddr();
         reqQueryIsInternalAddr.setAddr("sss");
         reqQueryIsInternalAddr.setChain("trx");
@@ -131,13 +164,14 @@ public class example {
         //------------
         //提交提币工单
         //------------
+
         ReqSubmitWithdraw reqSubmitWithdraw1 = new ReqSubmitWithdraw();
-        reqSubmitWithdraw1.setAddr("");
-        reqSubmitWithdraw1.setAmount("0.01");
-        reqSubmitWithdraw1.setChain("trx");
-        reqSubmitWithdraw1.setCoin("trx");
-        reqSubmitWithdraw1.setMemo("trx");
-        reqSubmitWithdraw1.setUsertags("trx");
+        reqSubmitWithdraw1.setAddr("ATzuR1mRNT3WWciTD4RC6GGt9H4aRammht3");
+        reqSubmitWithdraw1.setAmount("10");
+        reqSubmitWithdraw1.setChain("vsys");
+        reqSubmitWithdraw1.setCoin("vsys");
+        reqSubmitWithdraw1.setMemo("vsys");
+        reqSubmitWithdraw1.setUsertags("vsys");
         reqSubmitWithdraw1.setSubuserid("26");
         //TODO 调用api
         RespSubmitWithdrawBody respSubmitWithdrawBody = sdk.SubmitWithdraw(reqSubmitWithdraw1);
@@ -190,11 +224,12 @@ public class example {
         //------------
         //查询提币记录
         //------------
+
         ReqQueryWithdrawHistory reqQueryWithdrawHistory = new ReqQueryWithdrawHistory();
-        reqQueryWithdrawHistory.setChain("trx");
-        reqQueryWithdrawHistory.setCoin("trx");
+        reqQueryWithdrawHistory.setChain("vsys");
+        reqQueryWithdrawHistory.setCoin("vsys");
         reqQueryWithdrawHistory.setSubuserid("26");
-        reqQueryWithdrawHistory.setFromid(1);
+        reqQueryWithdrawHistory.setFromid(4009);
         reqQueryWithdrawHistory.setLimit(100);
         //TODO 调用api
         RespQueryWithdrawHistoryBody respQueryWithdrawHistoryBody = sdk.QueryWithdrawHistory(reqQueryWithdrawHistory);
@@ -204,5 +239,24 @@ public class example {
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respQueryWithdrawHistoryBody));
+
+
+        //------------
+        //取消提币接口
+        //------------
+
+        ReqWithdrawCancel reqWithdrawCancel = new ReqWithdrawCancel();
+        reqWithdrawCancel.setChain("vsys");
+        reqWithdrawCancel.setCoin("vsys");
+        reqWithdrawCancel.setSubuserid("26");
+        reqWithdrawCancel.setWithdrawId(4009);
+        //TODO 调用api
+        RespData respData2 = sdk.WithdrawCancel(reqWithdrawCancel);
+        //TODO 判断错误
+        if (respData2.getEmsg().equals("") || respData2.getEno() == 0) {
+            System.out.println(respData2.getEmsg());
+        }
+//        输出字符串
+        System.out.println(JSON.toJSONString(respData2));
     }
 }

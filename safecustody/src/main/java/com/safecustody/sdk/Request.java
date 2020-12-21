@@ -51,6 +51,7 @@ public abstract class Request {
     private String buildParam(ReqData param) {
         int time = this.user.getTimes();
         AuthBody authBody = new AuthBody();
+        authBody.setApiKey(this.user.getApiKey());
         authBody.setToken(this.user.getToken(String.valueOf(time)));
         authBody.setTimestamp(this.user.getTimes());
         this.user.unsetTime();
@@ -59,6 +60,7 @@ public abstract class Request {
         com.safecustody.sdk.data.comm.Request request = new com.safecustody.sdk.data.comm.Request();
         request.setAppid(this.user.getAppid());
         request.setData(param);
+        System.out.println(JSON.toJSONString(request));
 
         return JSON.toJSONString(request);
     }

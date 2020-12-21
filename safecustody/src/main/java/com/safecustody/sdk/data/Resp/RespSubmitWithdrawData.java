@@ -104,6 +104,12 @@ public class RespSubmitWithdrawData {
     @JSONField(name = "fee_coin")
     private String feeCoin;
 
+    /**
+     * api访问公钥
+     */
+    @JSONField(name = "api_key")
+    private String apiKey="";
+
 
     /**
      * 手续费数量
@@ -245,5 +251,13 @@ public class RespSubmitWithdrawData {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
     }
 }

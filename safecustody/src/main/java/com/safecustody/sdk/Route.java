@@ -154,6 +154,19 @@ public class Route extends com.safecustody.sdk.Request {
     }
 
 
+    /**
+     * 取消提币接口
+     *
+     * @param reqWithdrawCancel
+     * @return
+     */
+    public RespData WithdrawCancel(ReqWithdrawCancel reqWithdrawCancel) {
+        String result = this.request("withdraw/cancel.php", reqWithdrawCancel);
+        Resp res = JSON.parseObject(result, Resp.class);
+        return res.getData();
+    }
+
+
     public String getHost() {
         return null;
     }

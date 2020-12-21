@@ -35,6 +35,12 @@ public class RespGetDepositHistoryData {
 
 
     /**
+     * api访问公钥
+     */
+    @JSONField(name = "api_key")
+    private String apiKey="";
+
+    /**
      * 订单接收地址
      */
     private String addr;
@@ -141,5 +147,13 @@ public class RespGetDepositHistoryData {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
     }
 }

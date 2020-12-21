@@ -1,5 +1,7 @@
 package com.safecustody.sdk;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.security.MessageDigest;
 import java.util.Date;
 
@@ -25,6 +27,13 @@ public class User {
      * times
      */
     private int times = 0;
+
+
+    /**
+     * api访问公钥
+     */
+    @JSONField(name = "api_key")
+    private String apiKey = "";
 
 
     /**
@@ -105,6 +114,24 @@ public class User {
      */
     public void unsetTime() {
         this.times = 0;
+    }
+
+
+    /**
+     * 获取apiKey
+     * @return
+     */
+    public String getApiKey() {
+        return apiKey;
+    }
+
+
+    /**
+     * 设置apiKey
+     * @param apiKey
+     */
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
     }
 
 

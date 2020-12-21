@@ -26,7 +26,7 @@ public class RespGetDepositAddrData {
 
 
     /**
-     * 0:不需要，1需要，填写的memo字符串格式: "userid#subuserid#id"（id是申请的appid序号）
+     * 0:不需要，1需要
      */
     private int needmemo;
 
