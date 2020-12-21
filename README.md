@@ -19,8 +19,8 @@
 #### 创建sdkApi
  ```java             
 import com.alibaba.fastjson.JSON;
-import com.safecustody.sdk.Sdk;//创建用户实例
-import com.safecustody.sdk.User;User user = new User();
+import com.safecustody.sdk.Sdk;
+import com.safecustody.sdk.User;
 import com.safecustody.sdk.data.Resp.RespQueryCoinBody;
 
 public class App {
