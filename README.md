@@ -34,7 +34,7 @@ public class App {
 
     //对应商户后SECRETKEY
     //用来加密token的私钥
-    user.setSalt("");
+    user.setSecretKey("");
 
     //对应的商户后台的商户id
     user.setUserid("");
