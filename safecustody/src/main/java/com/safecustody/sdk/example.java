@@ -133,6 +133,9 @@ public class example {
         reqGetDepositHistory.setChain("vsys");
         reqGetDepositHistory.setCoin("vsys");
         reqGetDepositHistory.setSubuserid("26");
+        reqGetDepositHistory.setFromid(1);
+        reqGetDepositHistory.setLimit(1);
+
         //TODO 调用api
         RespGetDepositHistoryBody respGetDepositHistoryBody = sdk.GetDepositHistory(reqGetDepositHistory);
         //TODO 判断错误

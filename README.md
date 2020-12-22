@@ -33,11 +33,11 @@ public class App {
     //用户身份ID, 一个唯一的随机字符串
     user.setAppid("");
 
-    //对应商户后台SECRETKEY
+    //对应商户后SECRETKEY
     //用来加密token的私钥
     user.setSalt("");
 
-    //你的userid
+    //对应的商户后台的商户id
     user.setUserid("");
 
     //对应商户后台APIKEY
