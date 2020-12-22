@@ -33,7 +33,7 @@ public class App {
     //用户身份ID, 一个唯一的随机字符串
     user.setAppid("");
 
-    //对应商户后SECRETKEY
+    //对应商户后台SECRETKEY
     //用来加密token的私钥
     user.setSalt("");
 
