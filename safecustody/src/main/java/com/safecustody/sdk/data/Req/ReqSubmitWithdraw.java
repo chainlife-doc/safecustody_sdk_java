@@ -1,5 +1,6 @@
 package com.safecustody.sdk.data.Req;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.safecustody.sdk.data.comm.ReqData;
 
 public class ReqSubmitWithdraw extends ReqData {
@@ -34,16 +35,22 @@ public class ReqSubmitWithdraw extends ReqData {
 
 
     /**
-     * 用户备注,内容自定义（会记录到区块链上）
+     * 该字段主要提供给链上支持备注的币种，内容会更新到链上
      */
     private String memo;
 
 
     /**
-     * 用户标签，内容自定义 （不会记录到区块链上）
+     * 用户标签, 自定义内容，一般作为订单备注使用,辅助说明
      */
     private String usertags;
 
+
+    /**
+     * 户自定义订单ID，该字段主要是填写用户系统的订单流水号，字段具有唯一性（可选字段)
+     */
+    @JSONField(name = "user_orderid")
+    private String userOrderid;
 
     /**
      * 提币请求签名
@@ -112,5 +119,13 @@ public class ReqSubmitWithdraw extends ReqData {
 
     public void setSign(String sign) {
         this.sign = sign;
+    }
+
+    public String getUserOrderid() {
+        return userOrderid;
+    }
+
+    public void setUserOrderid(String userOrderid) {
+        this.userOrderid = userOrderid;
     }
 }

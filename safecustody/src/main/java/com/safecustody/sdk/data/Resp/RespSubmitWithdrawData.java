@@ -55,13 +55,13 @@ public class RespSubmitWithdrawData {
 
 
     /**
-     * 提币备注，比如用户ID之类的，可以是任意内容
+     * 该字段主要提供给链上支持备注的币种，内容会更新到链上
      */
     private String memo;
 
 
     /**
-     * 提币状态: 1=准备发送,2=发送中,3=发送成功,4=发送失败,5=发送已取消
+     * 提币状态: 0=无效状态,1=准备发送,2=发送中,3=发送成功,4=发送失败,5=待确认
      */
     private int status;
 
@@ -92,6 +92,13 @@ public class RespSubmitWithdrawData {
 
 
     /**
+     * 用户系统流水号ID
+     */
+    @JSONField(name = "user_orderid")
+    private String userOrderid;
+
+
+    /**
      * 手续费币种的链名
      */
     @JSONField(name = "fee_coin_chain")
@@ -108,8 +115,14 @@ public class RespSubmitWithdrawData {
      * api访问公钥
      */
     @JSONField(name = "api_key")
-    private String apiKey="";
+    private String apiKey;
 
+
+    /**
+     * 手续费的链名
+     */
+    @JSONField(name = "fee_coin_chain")
+    private String feeCoinChain;
 
     /**
      * 手续费数量
@@ -259,5 +272,21 @@ public class RespSubmitWithdrawData {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public String getUserOrderid() {
+        return userOrderid;
+    }
+
+    public void setUserOrderid(String userOrderid) {
+        this.userOrderid = userOrderid;
+    }
+
+    public String getFeeCoinChain() {
+        return feeCoinChain;
+    }
+
+    public void setFeeCoinChain(String feeCoinChain) {
+        this.feeCoinChain = feeCoinChain;
     }
 }

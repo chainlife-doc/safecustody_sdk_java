@@ -30,6 +30,12 @@ public class RespGetDepositAddrData {
      */
     private int needmemo;
 
+
+    /**
+     * 如果充值需要填写备注，这个字段会列出需要的备注
+     */
+    private String memo;
+
     public String getChain() {
         return chain;
     }
@@ -68,5 +74,13 @@ public class RespGetDepositAddrData {
 
     public void setNeedmemo(int needmemo) {
         this.needmemo = needmemo;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
     }
 }

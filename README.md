@@ -30,7 +30,6 @@ public class App {
     User user = new User();
 
     //对应商户后台APPID
-    //用户身份ID, 一个唯一的随机字符串
     user.setAppid("");
 
     //对应商户后SECRETKEY
@@ -196,8 +195,9 @@ reqSubmitWithdraw1.setMemo("trx");
 //usertags 提币标签，内容自定义 （不会记录到区块链上）                             
 reqSubmitWithdraw1.setUsertags("trx");  
 //你的用户id                              
-reqSubmitWithdraw1.setSubuserid("26");                                
-
+reqSubmitWithdraw1.setSubuserid("26");  
+//用户自定义订单ID，具有唯一性，可避免重复订单(可选字段)                              
+reqSubmitWithdraw1.setUserOrderid("26"); 
 //请求接口
 RespSubmitWithdrawBody respSubmitWithdrawBody = sdk.SubmitWithdraw(reqSubmitWithdraw1);
 
@@ -225,7 +225,8 @@ reqSubmitWithdraw2.setMemo("trx");
 reqSubmitWithdraw2.setUsertags("trx");          
 //你的用户id                   
 reqSubmitWithdraw2.setSubuserid("26");                             
-
+//用户自定义订单ID，具有唯一性，可避免重复订单(可选字段)                              
+reqSubmitWithdraw1.setUserOrderid("26"); 
 //请求接口
 RespData respData = sdk.ValidateWithdraw(reqSubmitWithdraw2);
 

@@ -30,7 +30,7 @@ public class RespQueryWithdrawStatusData {
      * api访问公钥
      */
     @JSONField(name = "api_key")
-    private String apiKey="";
+    private String apiKey;
 
     /**
      * 提币发送地址
@@ -60,7 +60,7 @@ public class RespQueryWithdrawStatusData {
 
 
     /**
-     * 提币备注，比如用户ID之类的，可以是任意内容
+     * 该字段主要提供给链上支持备注的币种，内容会更新到链上
      */
     private String memo;
 
@@ -89,6 +89,12 @@ public class RespQueryWithdrawStatusData {
      */
     private String usertags;
 
+
+    /**
+     * 用户系统流水号ID
+     */
+    @JSONField(name = "user_orderid")
+    private String userOrderid;
 
     /**
      * 订单创建时间
@@ -213,5 +219,13 @@ public class RespQueryWithdrawStatusData {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public String getUserOrderid() {
+        return userOrderid;
+    }
+
+    public void setUserOrderid(String userOrderid) {
+        this.userOrderid = userOrderid;
     }
 }

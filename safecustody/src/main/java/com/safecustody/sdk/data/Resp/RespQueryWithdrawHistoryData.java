@@ -55,7 +55,14 @@ public class RespQueryWithdrawHistoryData {
 
 
     /**
-     * 提币备注，比如用户ID之类的，可以是任意内容
+     * 用户系统流水号ID
+     */
+    @JSONField(name = "user_orderid")
+    private String userOrderid;
+
+
+    /**
+     * 该字段主要提供给链上支持备注的币种，内容会更新到链上
      */
     private String memo;
 
@@ -76,7 +83,7 @@ public class RespQueryWithdrawHistoryData {
      * api访问公钥
      */
     @JSONField(name = "api_key")
-    private String apiKey="";
+    private String apiKey;
 
     /**
      * 链上的交易ID
@@ -213,5 +220,13 @@ public class RespQueryWithdrawHistoryData {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public String getUserOrderid() {
+        return userOrderid;
+    }
+
+    public void setUserOrderid(String userOrderid) {
+        this.userOrderid = userOrderid;
     }
 }

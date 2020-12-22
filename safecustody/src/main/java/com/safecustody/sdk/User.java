@@ -21,7 +21,7 @@ public class User {
     /**
      * salt
      */
-    private String salt = "";
+    private String secretKey = "";
 
     /**
      * times
@@ -77,26 +77,6 @@ public class User {
 
 
     /**
-     * 获取salt
-     *
-     * @return
-     */
-    public String getSalt() {
-        return this.salt;
-    }
-
-
-    /**
-     * 设置salt
-     *
-     * @param salt
-     */
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-
-    /**
      * 获取用户时间
      *
      * @return
@@ -141,12 +121,12 @@ public class User {
      * @return
      */
     public String getToken(String time) {
-        return md5(this.getAppid() + "_" + this.getSalt() + "_" + this.getUserid() + "_" + time);
+        return md5(this.getAppid() + "_" + this.getSecretKey() + "_" + this.getUserid() + "_" + time);
     }
 
 
     public String getSign(String addr, String memo, String usertags) {
-        return md5(this.getAppid() + "_" + this.getSalt() + "_" +
+        return md5(this.getAppid() + "_" + this.getSecretKey() + "_" +
                 this.getUserid() + "_" + this.getTimes() + "_" + addr + "_" + memo + "_" + usertags);
     }
 
@@ -166,5 +146,13 @@ public class User {
         }
 
         return "";
+    }
+
+    public String getSecretKey() {
+        return secretKey;
+    }
+
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
     }
 }

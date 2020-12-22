@@ -57,38 +57,11 @@ public class RespQueryCoinData {
 
 
     /**
-     * 手续费币种
-     */
-    @JSONField(name = "fee_coin")
-    private String feeCoin;
-
-
-    /**
-     * 手续费类型: 0=固定数量,1=费率,2=混合(withdraw_amt*rate+amount)
-     */
-    @JSONField(name = "fee_type")
-    private int feeType;
-
-
-    /**
-     * 固定手续费数量
+     * 充值是否需要备注: 1=充值需要备注,0=充值不需要备注
      */
     @JSONField(name = "need_memo")
     private long needMemo;
 
-
-    /**
-     * 手续费率
-     */
-    @JSONField(name = "fee_amount")
-    private String feeAmount;
-
-
-    /**
-     * 充值是否需要备注: 1=充值需要备注,0=充值不需要备注
-     */
-    @JSONField(name = "fee_rate")
-    private String feeRate;
 
     public String getChain() {
         return chain;
@@ -154,43 +127,11 @@ public class RespQueryCoinData {
         this.depositConfirmCount = depositConfirmCount;
     }
 
-    public String getFeeCoin() {
-        return feeCoin;
-    }
-
-    public void setFeeCoin(String feeCoin) {
-        this.feeCoin = feeCoin;
-    }
-
-    public int getFeeType() {
-        return feeType;
-    }
-
-    public void setFeeType(int feeType) {
-        this.feeType = feeType;
-    }
-
     public long getNeedMemo() {
         return needMemo;
     }
 
     public void setNeedMemo(long needMemo) {
         this.needMemo = needMemo;
-    }
-
-    public String getFeeAmount() {
-        return feeAmount;
-    }
-
-    public void setFeeAmount(String feeAmount) {
-        this.feeAmount = feeAmount;
-    }
-
-    public String getFeeRate() {
-        return feeRate;
-    }
-
-    public void setFeeRate(String feeRate) {
-        this.feeRate = feeRate;
     }
 }

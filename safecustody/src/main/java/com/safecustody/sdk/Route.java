@@ -12,6 +12,9 @@ import java.util.HashSet;
 
 public class Route extends com.safecustody.sdk.Request {
 
+
+    private static final int API_SUCC_CODE = 0;
+
     /**
      * @param user
      */
@@ -29,6 +32,9 @@ public class Route extends com.safecustody.sdk.Request {
     public RespQueryCoinBody QueryCoinConf(ReqQueryCoin coin) {
         String result = this.request("coinconf.php", coin);
         RespQueryCoin res = JSON.parseObject(result, RespQueryCoin.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 
@@ -42,6 +48,9 @@ public class Route extends com.safecustody.sdk.Request {
     public RespQueryCoinBody QueryCoin() {
         String result = this.request("info.php", new ReqQueryCoinAll());
         RespQueryCoin res = JSON.parseObject(result, RespQueryCoin.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 
@@ -57,6 +66,9 @@ public class Route extends com.safecustody.sdk.Request {
         reqQueryBalance.setCoins(reqQueryBalanceBodyInfos);
         String result = this.request("balance.php", reqQueryBalance);
         RespQueryBalance res = JSON.parseObject(result, RespQueryBalance.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 
@@ -72,6 +84,9 @@ public class Route extends com.safecustody.sdk.Request {
         reqGetDepositAddr.setCoins(reqGetDepositAddrBodyInfoHashSet);
         String result = this.request("deposit/addr.php", reqGetDepositAddr);
         RespGetDepositAddr res = JSON.parseObject(result, RespGetDepositAddr.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 
@@ -85,6 +100,9 @@ public class Route extends com.safecustody.sdk.Request {
     public RespGetDepositHistoryBody GetDepositHistory(ReqGetDepositHistory reqGetDepositHistory) {
         String result = this.request("deposit/history.php", reqGetDepositHistory);
         RespGetDepositHistory res = JSON.parseObject(result, RespGetDepositHistory.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 
@@ -98,6 +116,9 @@ public class Route extends com.safecustody.sdk.Request {
     public RespQueryIsInternalAddrBody QueryIsInternalAddr(ReqQueryIsInternalAddr reqQueryIsInternalAddr) {
         String result = this.request("internal-addr/query.php", reqQueryIsInternalAddr);
         RespQueryIsInternalAddr res = JSON.parseObject(result, RespQueryIsInternalAddr.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 
@@ -111,6 +132,9 @@ public class Route extends com.safecustody.sdk.Request {
         reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags()));
         String result = this.request("withdraw/submit.php", reqSubmitWithdraw);
         RespSubmitWithdraw res = JSON.parseObject(result, RespSubmitWithdraw.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 
@@ -137,6 +161,9 @@ public class Route extends com.safecustody.sdk.Request {
     public RespQueryWithdrawStatusBody QueryWithdrawStatus(ReqQueryWithdrawStatus reqQueryWithdrawStatus) {
         String result = this.request("withdraw/status.php", reqQueryWithdrawStatus);
         RespQueryWithdrawStatus res = JSON.parseObject(result, RespQueryWithdrawStatus.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 
@@ -150,6 +177,9 @@ public class Route extends com.safecustody.sdk.Request {
     public RespQueryWithdrawHistoryBody QueryWithdrawHistory(ReqQueryWithdrawHistory reqQueryWithdrawHistory) {
         String result = this.request("withdraw/history.php", reqQueryWithdrawHistory);
         RespQueryWithdrawHistory res = JSON.parseObject(result, RespQueryWithdrawHistory.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 

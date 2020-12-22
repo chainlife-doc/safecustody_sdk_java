@@ -1,5 +1,6 @@
 package com.safecustody.sdk.data.Req;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.safecustody.sdk.data.comm.ReqData;
 
 public class ReqQueryWithdrawHistory extends ReqData {

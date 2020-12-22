@@ -20,14 +20,13 @@ public class example {
         User user = new User();
 
         //对应商户后台APPID
-        //用户身份ID, 一个唯一的随机字符串
         user.setAppid("");
 
         //对应商户后SECRETKEY
         //用来加密token的私钥
-        user.setSalt("");
+        user.setSecretKey("");
 
-        //分配的用户id
+        //对应的商户后台的商户id
         user.setUserid("");
 
         //对应商户后台APIKEY
@@ -41,7 +40,7 @@ public class example {
         //创建一个sdk
         Sdk sdk = new Sdk(user);
 
-        //TODO 请向管理员索取
+        //TODO 请向微信群的官方人员获取
         sdk.setHost("");
 
         //////////////////////////////
@@ -51,6 +50,7 @@ public class example {
         //-------------
         //单个币种查询
         //-------------
+
 
         ReqQueryCoin queryCoin = new ReqQueryCoin();
         queryCoin.setCoin("btc");
@@ -62,7 +62,6 @@ public class example {
         }
         //输出字符串
         System.out.println(JSON.toJSONString(respQueryCoinBody));
-
 
 
         //-------------
@@ -171,11 +170,12 @@ public class example {
         ReqSubmitWithdraw reqSubmitWithdraw1 = new ReqSubmitWithdraw();
         reqSubmitWithdraw1.setAddr("ATzuR1mRNT3WWciTD4RC6GGt9H4aRammht3");
         reqSubmitWithdraw1.setAmount("10");
-        reqSubmitWithdraw1.setChain("vsys");
-        reqSubmitWithdraw1.setCoin("vsys");
+        reqSubmitWithdraw1.setChain("trx");
+        reqSubmitWithdraw1.setCoin("trx");
         reqSubmitWithdraw1.setMemo("vsys");
         reqSubmitWithdraw1.setUsertags("vsys");
         reqSubmitWithdraw1.setSubuserid("26");
+
         //TODO 调用api
         RespSubmitWithdrawBody respSubmitWithdrawBody = sdk.SubmitWithdraw(reqSubmitWithdraw1);
         //TODO 判断错误
