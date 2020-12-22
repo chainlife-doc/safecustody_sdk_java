@@ -23,9 +23,9 @@ public class Sdk extends Route {
             throw new NullPointerException("host没有设置");
         }
 
-        String str1 = host.substring(0, host.length() - 1);
+        String str1 = host.substring(host.length() - 1);
         if (!str1.equals("/")) {
-            host = str1 + "/";
+            host = host + "/";
         }
         this.host = host;
     }
