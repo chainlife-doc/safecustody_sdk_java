@@ -40,7 +40,7 @@ public class Route extends com.safecustody.sdk.Request {
 
 
     /**
-     * 查询币种公共信息
+     * 查询全部币种
      *
      * @return
      * @throws IOException

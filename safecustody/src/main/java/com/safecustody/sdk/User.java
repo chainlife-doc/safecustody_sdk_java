@@ -10,18 +10,18 @@ public class User {
     /**
      * appid
      */
-    private String appid = "";
+    private String appid;
 
 
     /**
      * userid
      */
-    private String userid = "";
+    private String userid;
 
     /**
      * salt
      */
-    private String secretKey = "";
+    private String secretKey;
 
     /**
      * times
@@ -33,7 +33,7 @@ public class User {
      * api访问公钥
      */
     @JSONField(name = "api_key")
-    private String apiKey = "";
+    private String apiKey;
 
 
     /**
@@ -121,12 +121,12 @@ public class User {
      * @return
      */
     public String getToken(String time) {
-        return md5(this.getAppid() + "_" + this.getSecretKey() + "_" + this.getUserid() + "_" + time);
+        return md5(this.getApiKey() + "_" + this.getSecretKey() + "_" + this.getUserid() + "_" + time);
     }
 
 
     public String getSign(String addr, String memo, String usertags) {
-        return md5(this.getAppid() + "_" + this.getSecretKey() + "_" +
+        return md5(this.getApiKey() + "_" + this.getSecretKey() + "_" +
                 this.getUserid() + "_" + this.getTimes() + "_" + addr + "_" + memo + "_" + usertags);
     }
 

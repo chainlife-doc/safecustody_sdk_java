@@ -50,7 +50,7 @@ public class example {
         //-------------
         //单个币种查询
         //-------------
-
+/*
 
         ReqQueryCoin queryCoin = new ReqQueryCoin();
         queryCoin.setCoin("btc");
@@ -63,9 +63,8 @@ public class example {
         //输出字符串
         System.out.println(JSON.toJSONString(respQueryCoinBody));
 
-
         //-------------
-        //查询币种公共信息
+        //查询全部币种
         //-------------
 
         //TODO 调用api
@@ -162,7 +161,7 @@ public class example {
 //        输出字符串
         System.out.println(JSON.toJSONString(respQueryIsInternalAddrBody));
 
-
+*/
         //------------
         //提交提币工单
         //------------
@@ -170,7 +169,7 @@ public class example {
         ReqSubmitWithdraw reqSubmitWithdraw1 = new ReqSubmitWithdraw();
         reqSubmitWithdraw1.setAddr("ATzuR1mRNT3WWciTD4RC6GGt9H4aRammht3");
         reqSubmitWithdraw1.setAmount("10");
-        reqSubmitWithdraw1.setChain("trx");
+        reqSubmitWithdraw1.setChain("trx23");
         reqSubmitWithdraw1.setCoin("trx");
         reqSubmitWithdraw1.setMemo("vsys");
         reqSubmitWithdraw1.setUsertags("vsys");
@@ -184,7 +183,7 @@ public class example {
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respSubmitWithdrawBody));
-
+/*
 
         //------------
         //提币预校验接口
@@ -261,6 +260,6 @@ public class example {
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respData2));
-
+*/
     }
 }

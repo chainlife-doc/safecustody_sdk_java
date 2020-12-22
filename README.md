@@ -72,7 +72,7 @@ if (respQueryCoinBody.getEmsg().equals("") || respQueryCoinBody.getEno() == 0) {
 System.out.println(JSON.toJSONString(respQueryCoinBody));
 ```
 
-#### [查询公共币种信息](https://github.com/chainlife-doc/wallet-api/blob/master/%E6%9F%A5%E8%AF%A2%E5%B8%81%E7%A7%8D%E4%BF%A1%E6%81%AF.md)
+#### [查询全部币种](https://github.com/chainlife-doc/wallet-api/blob/master/%E6%9F%A5%E8%AF%A2%E5%B8%81%E7%A7%8D%E4%BF%A1%E6%81%AF.md)
 ```java
 //请求接口
 RespQueryCoinBody respQueryCoinBodys = sdk.QueryCoin();
