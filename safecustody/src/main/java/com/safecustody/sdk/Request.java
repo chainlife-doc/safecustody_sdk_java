@@ -60,8 +60,6 @@ public abstract class Request {
         com.safecustody.sdk.data.comm.Request request = new com.safecustody.sdk.data.comm.Request();
         request.setAppid(this.user.getAppid());
         request.setData(param);
-        System.out.println(JSON.toJSONString(request));
-
         return JSON.toJSONString(request);
     }
 
