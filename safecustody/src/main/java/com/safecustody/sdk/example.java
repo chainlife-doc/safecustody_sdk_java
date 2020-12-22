@@ -50,7 +50,7 @@ public class example {
         //-------------
         //单个币种查询
         //-------------
-/*
+
 
         ReqQueryCoin queryCoin = new ReqQueryCoin();
         queryCoin.setCoin("btc");
@@ -161,7 +161,7 @@ public class example {
 //        输出字符串
         System.out.println(JSON.toJSONString(respQueryIsInternalAddrBody));
 
-*/
+
         //------------
         //提交提币工单
         //------------
@@ -183,7 +183,7 @@ public class example {
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respSubmitWithdrawBody));
-/*
+
 
         //------------
         //提币预校验接口
@@ -260,6 +260,6 @@ public class example {
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respData2));
-*/
+
     }
 }
