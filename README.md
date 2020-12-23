@@ -281,7 +281,7 @@ if (respQueryWithdrawHistoryBody.getEmsg().equals("") || respQueryWithdrawHistor
 System.out.println(JSON.toJSONString(respQueryWithdrawHistoryBody)); 
 ```
 
-#### [取消提币接口](https://github.com/chainlife-doc/wallet-api/blob/master/withdraw/取消提币接口.md)
+#### [取消提币接口](https://github.com/chainlife-doc/wallet-api/blob/master/withdraw/%E5%8F%96%E6%B6%88%E6%8F%90%E5%B8%81%E6%8E%A5%E5%8F%A3.md)
 ```java
 ReqWithdrawCancel reqWithdrawCancel = new ReqWithdrawCancel();
 //链名        
