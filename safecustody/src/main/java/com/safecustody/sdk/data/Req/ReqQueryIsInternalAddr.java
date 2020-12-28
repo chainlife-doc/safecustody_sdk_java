@@ -6,19 +6,19 @@ public class ReqQueryIsInternalAddr extends ReqData {
     /**
      * 链名
      */
-    private String chain;
+    private String chain="";
 
 
     /**
      * 币名
      */
-    private String coin;
+    private String coin="";
 
 
     /**
      * 查询的地址
      */
-    private String addr;
+    private String addr="";
 
     public String getChain() {
         return chain;

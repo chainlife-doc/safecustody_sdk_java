@@ -37,20 +37,20 @@ public class ReqSubmitWithdraw extends ReqData {
     /**
      * 该字段主要提供给链上支持备注的币种，内容会更新到链上
      */
-    private String memo;
+    private String memo = "";
 
 
     /**
      * 用户标签, 自定义内容，一般作为订单备注使用,辅助说明
      */
-    private String usertags;
+    private String usertags="";
 
 
     /**
      * 户自定义订单ID，该字段主要是填写用户系统的订单流水号，字段具有唯一性（可选字段)
      */
     @JSONField(name = "user_orderid")
-    private String userOrderid;
+    private String userOrderid="";
 
     /**
      * 提币请求签名

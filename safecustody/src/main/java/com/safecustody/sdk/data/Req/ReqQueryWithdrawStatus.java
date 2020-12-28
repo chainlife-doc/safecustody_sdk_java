@@ -6,19 +6,19 @@ public class ReqQueryWithdrawStatus extends ReqData {
     /**
      * 链名
      */
-    private String chain;
+    private String chain = "";
 
 
     /**
      * 币名
      */
-    private String coin;
+    private String coin = "";
 
 
     /**
      * 提币订单ID
      */
-    private long withdrawid;
+    private long withdrawid = 0;
 
     public String getChain() {
         return chain;

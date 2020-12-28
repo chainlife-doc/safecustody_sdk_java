@@ -171,7 +171,7 @@ public class example {
         reqSubmitWithdraw1.setAmount("10");
         reqSubmitWithdraw1.setChain("trx23");
         reqSubmitWithdraw1.setCoin("trx");
-        reqSubmitWithdraw1.setMemo("vsys");
+//        reqSubmitWithdraw1.setMemo("vsys");
         reqSubmitWithdraw1.setUsertags("vsys");
         reqSubmitWithdraw1.setSubuserid("26");
 

@@ -8,13 +8,13 @@ public class ReqQueryBalanceBodyInfo extends ReqData {
     /**
      * 链名
      */
-    private String chain;
+    private String chain="";
 
 
     /**
      * 币名
      */
-    private String coin;
+    private String coin="";
 
     public String getChain() {
         return chain;

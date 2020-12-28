@@ -7,26 +7,26 @@ public class ReqWithdrawCancel extends ReqData {
     /**
      * 你的用户id
      */
-    private String subuserid;
+    private String subuserid = "";
 
 
     /**
      * 链名
      */
-    private String chain;
+    private String chain = "";
 
 
     /**
      * 币名
      */
-    private String coin;
+    private String coin = "";
 
 
     /**
      * 订单ID
      */
     @JSONField(name = "withdrawid")
-    private long withdrawId;
+    private long withdrawId=0;
 
 
     public String getSubuserid() {

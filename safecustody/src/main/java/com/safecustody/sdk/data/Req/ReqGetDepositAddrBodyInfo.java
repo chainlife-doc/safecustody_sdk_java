@@ -4,13 +4,13 @@ public class ReqGetDepositAddrBodyInfo {
     /**
      * 链名
      */
-    private String chain;
+    private String chain = "";
 
 
     /**
      * 币名
      */
-    private String coin;
+    private String coin = "";
 
 
     /**

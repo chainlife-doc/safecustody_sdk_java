@@ -127,7 +127,7 @@ public class User {
 
     public String getSign(String addr, String memo, String usertags) {
         return md5(this.getApiKey() + "_" + this.getSecretKey() + "_" +
-                this.getUserid() + "_" + this.getTimes() + "_" + addr + "_" + memo + "_" + usertags);
+                this.getUserid() + "_" + this.getTimes() + "_" + addr + "_" + "" + "_" + usertags);
     }
 
 

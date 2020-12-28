@@ -6,7 +6,7 @@ public class ReqQueryCoin extends ReqData {
     /**
      * 币名
      */
-    private String coin;
+    private String coin="";
 
     public String getCoin() {
         return coin;
