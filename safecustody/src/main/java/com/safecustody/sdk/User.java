@@ -99,6 +99,7 @@ public class User {
 
     /**
      * 获取apiKey
+     *
      * @return
      */
     public String getApiKey() {
@@ -108,6 +109,7 @@ public class User {
 
     /**
      * 设置apiKey
+     *
      * @param apiKey
      */
     public void setApiKey(String apiKey) {
@@ -125,9 +127,16 @@ public class User {
     }
 
 
-    public String getSign(String addr, String memo, String usertags) {
+    public String getSign(String addr, String memo, String usertags, String getUserOrderid) {
+
+        String str = "";
+
+        if (!getUserOrderid.equals("")) {
+            str = "_" + getUserOrderid;
+        }
+
         return md5(this.getApiKey() + "_" + this.getSecretKey() + "_" +
-                this.getUserid() + "_" + this.getTimes() + "_" + addr + "_" + "" + "_" + usertags);
+                this.getUserid() + "_" + this.getTimes() + "_" + addr + "_" + memo + "_" + usertags + str);
     }
 
 
