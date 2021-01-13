@@ -129,7 +129,7 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespSubmitWithdrawBody SubmitWithdraw(ReqSubmitWithdraw reqSubmitWithdraw) {
-        reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags(),reqSubmitWithdraw.getUserOrderid()));
+        reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags(), reqSubmitWithdraw.getUserOrderid()));
         String result = this.request("withdraw/submit.php", reqSubmitWithdraw);
         RespSubmitWithdraw res = JSON.parseObject(result, RespSubmitWithdraw.class);
         if (res.getData().getEno() != API_SUCC_CODE) {
@@ -146,7 +146,7 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespData ValidateWithdraw(ReqSubmitWithdraw reqSubmitWithdraw) {
-        reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags(),reqSubmitWithdraw.getUserOrderid()));
+        reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags(), reqSubmitWithdraw.getUserOrderid()));
         String result = this.request("withdraw/validator.php", reqSubmitWithdraw);
         Resp res = JSON.parseObject(result, Resp.class);
         return res.getData();
@@ -193,6 +193,21 @@ public class Route extends com.safecustody.sdk.Request {
     public RespData WithdrawCancel(ReqWithdrawCancel reqWithdrawCancel) {
         String result = this.request("withdraw/cancel.php", reqWithdrawCancel);
         Resp res = JSON.parseObject(result, Resp.class);
+        return res.getData();
+    }
+
+    /**
+     * 查询币种节点高度
+     *
+     * @param reqBlockHeight
+     * @return
+     */
+    public RespBlockHeightBody BlockHeight(ReqBlockHeight reqBlockHeight) {
+        String result = this.request("blockheight.php", reqBlockHeight);
+        RespBlockHeight res = JSON.parseObject(result, RespBlockHeight.class);
+        if (res.getData().getEno() != API_SUCC_CODE) {
+            res.getData().setData(null);
+        }
         return res.getData();
     }
 

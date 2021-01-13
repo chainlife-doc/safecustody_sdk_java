@@ -261,5 +261,20 @@ public class example {
 //        输出字符串
         System.out.println(JSON.toJSONString(respData2));
 
+
+        //----------
+        //查询区块高度
+        //----------
+        ReqBlockHeight reqBlockHeight = new ReqBlockHeight();
+        reqBlockHeight.setChain("btc");
+        reqBlockHeight.setCoin("btc");
+        //TODO 调用api
+        RespBlockHeightBody respBlockHeightBody = sdk.BlockHeight(reqBlockHeight);
+        //TODO 判断错误
+        if (respBlockHeightBody.getEmsg().equals("") || respBlockHeightBody.getEno() == 0) {
+            System.out.println(respBlockHeightBody.getEmsg());
+        }
+        //        输出字符串
+        System.out.println(JSON.toJSONString(respBlockHeightBody));
     }
 }
