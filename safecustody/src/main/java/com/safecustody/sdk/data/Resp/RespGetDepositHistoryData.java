@@ -72,7 +72,7 @@ public class RespGetDepositHistoryData {
         this.height = height;
     }
 
-    private String height;
+    private String height="";
 
     /**
      * 订单生成时间

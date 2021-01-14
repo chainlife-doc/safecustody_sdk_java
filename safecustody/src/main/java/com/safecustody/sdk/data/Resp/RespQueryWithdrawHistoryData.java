@@ -97,6 +97,16 @@ public class RespQueryWithdrawHistoryData {
     private String usertags;
 
 
+    private String height="";
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
     /**
      * 订单创建时间
      */
