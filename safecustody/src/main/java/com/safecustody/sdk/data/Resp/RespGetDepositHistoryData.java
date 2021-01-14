@@ -69,6 +69,26 @@ public class RespGetDepositHistoryData {
      */
     private String time;
 
+    private int status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getStatus_desc() {
+        return status_desc;
+    }
+
+    public void setStatus_desc(String status_desc) {
+        this.status_desc = status_desc;
+    }
+
+    private String status_desc;
+
     public long getId() {
         return id;
     }
