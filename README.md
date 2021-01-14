@@ -302,3 +302,19 @@ if (respData2.getEmsg().equals("") || respData2.getEno() == 0) {
 
 System.out.println(JSON.toJSONString(respData2));
 ```
+
+
+#### [查询区块高度](https://github.com/chainlife-doc/wallet-api/blob/master/%E6%9F%A5%E8%AF%A2%E5%B8%81%E7%A7%8D%E8%8A%82%E7%82%B9%E9%AB%98%E5%BA%A6.md)
+```java
+        ReqBlockHeight reqBlockHeight = new ReqBlockHeight();
+        reqBlockHeight.setChain("btc");
+        reqBlockHeight.setCoin("btc");
+        //TODO 调用api
+        RespBlockHeightBody respBlockHeightBody = sdk.BlockHeight(reqBlockHeight);
+        //TODO 判断错误
+        if (respBlockHeightBody.getEmsg().equals("") || respBlockHeightBody.getEno() == 0) {
+            System.out.println(respBlockHeightBody.getEmsg());
+        }
+        //        输出字符串
+        System.out.println(JSON.toJSONString(respBlockHeightBody));
+```
