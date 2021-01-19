@@ -14,6 +14,7 @@ public class Route extends com.safecustody.sdk.Request {
 
 
     private static final int API_SUCC_CODE = 0;
+    private static final int SDK_ERROE = -1;
 
     /**
      * @param user
@@ -30,12 +31,19 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespQueryCoinBody QueryCoinConf(ReqQueryCoin coin) {
-        String result = this.request("coinconf.php", coin);
-        RespQueryCoin res = JSON.parseObject(result, RespQueryCoin.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            String result = this.request("coinconf.php", coin);
+            RespQueryCoin res = JSON.parseObject(result, RespQueryCoin.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespQueryCoinBody data = new RespQueryCoinBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 
@@ -46,12 +54,19 @@ public class Route extends com.safecustody.sdk.Request {
      * @throws IOException
      */
     public RespQueryCoinBody QueryCoin() {
-        String result = this.request("info.php", new ReqQueryCoinAll());
-        RespQueryCoin res = JSON.parseObject(result, RespQueryCoin.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            String result = this.request("info.php", new ReqQueryCoinAll());
+            RespQueryCoin res = JSON.parseObject(result, RespQueryCoin.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespQueryCoinBody data = new RespQueryCoinBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 
@@ -62,14 +77,21 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespQueryBalanceBody QueryBalance(HashSet<ReqQueryBalanceBodyInfo> reqQueryBalanceBodyInfos) {
-        ReqQueryBalance reqQueryBalance = new ReqQueryBalance();
-        reqQueryBalance.setCoins(reqQueryBalanceBodyInfos);
-        String result = this.request("balance.php", reqQueryBalance);
-        RespQueryBalance res = JSON.parseObject(result, RespQueryBalance.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            ReqQueryBalance reqQueryBalance = new ReqQueryBalance();
+            reqQueryBalance.setCoins(reqQueryBalanceBodyInfos);
+            String result = this.request("balance.php", reqQueryBalance);
+            RespQueryBalance res = JSON.parseObject(result, RespQueryBalance.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespQueryBalanceBody data = new RespQueryBalanceBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 
@@ -80,14 +102,21 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespGetDepositAddrBody GetDepositAddr(HashSet<ReqGetDepositAddrBodyInfo> reqGetDepositAddrBodyInfoHashSet) {
-        ReqGetDepositAddr reqGetDepositAddr = new ReqGetDepositAddr();
-        reqGetDepositAddr.setCoins(reqGetDepositAddrBodyInfoHashSet);
-        String result = this.request("deposit/addr.php", reqGetDepositAddr);
-        RespGetDepositAddr res = JSON.parseObject(result, RespGetDepositAddr.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            ReqGetDepositAddr reqGetDepositAddr = new ReqGetDepositAddr();
+            reqGetDepositAddr.setCoins(reqGetDepositAddrBodyInfoHashSet);
+            String result = this.request("deposit/addr.php", reqGetDepositAddr);
+            RespGetDepositAddr res = JSON.parseObject(result, RespGetDepositAddr.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespGetDepositAddrBody data = new RespGetDepositAddrBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 
@@ -98,12 +127,19 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespGetDepositHistoryBody GetDepositHistory(ReqGetDepositHistory reqGetDepositHistory) {
-        String result = this.request("deposit/history.php", reqGetDepositHistory);
-        RespGetDepositHistory res = JSON.parseObject(result, RespGetDepositHistory.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            String result = this.request("deposit/history.php", reqGetDepositHistory);
+            RespGetDepositHistory res = JSON.parseObject(result, RespGetDepositHistory.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespGetDepositHistoryBody data = new RespGetDepositHistoryBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 
@@ -114,12 +150,19 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespQueryIsInternalAddrBody QueryIsInternalAddr(ReqQueryIsInternalAddr reqQueryIsInternalAddr) {
-        String result = this.request("internal-addr/query.php", reqQueryIsInternalAddr);
-        RespQueryIsInternalAddr res = JSON.parseObject(result, RespQueryIsInternalAddr.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            String result = this.request("internal-addr/query.php", reqQueryIsInternalAddr);
+            RespQueryIsInternalAddr res = JSON.parseObject(result, RespQueryIsInternalAddr.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespQueryIsInternalAddrBody data = new RespQueryIsInternalAddrBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
     /**
@@ -129,13 +172,20 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespSubmitWithdrawBody SubmitWithdraw(ReqSubmitWithdraw reqSubmitWithdraw) {
-        reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags(), reqSubmitWithdraw.getUserOrderid()));
-        String result = this.request("withdraw/submit.php", reqSubmitWithdraw);
-        RespSubmitWithdraw res = JSON.parseObject(result, RespSubmitWithdraw.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags(), reqSubmitWithdraw.getUserOrderid()));
+            String result = this.request("withdraw/submit.php", reqSubmitWithdraw);
+            RespSubmitWithdraw res = JSON.parseObject(result, RespSubmitWithdraw.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespSubmitWithdrawBody data = new RespSubmitWithdrawBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 
@@ -146,10 +196,17 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespData ValidateWithdraw(ReqSubmitWithdraw reqSubmitWithdraw) {
-        reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags(), reqSubmitWithdraw.getUserOrderid()));
-        String result = this.request("withdraw/validator.php", reqSubmitWithdraw);
-        Resp res = JSON.parseObject(result, Resp.class);
-        return res.getData();
+        try {
+            reqSubmitWithdraw.setSign(this.user.getSign(reqSubmitWithdraw.getAddr(), reqSubmitWithdraw.getMemo(), reqSubmitWithdraw.getUsertags(), reqSubmitWithdraw.getUserOrderid()));
+            String result = this.request("withdraw/validator.php", reqSubmitWithdraw);
+            Resp res = JSON.parseObject(result, Resp.class);
+            return res.getData();
+        } catch (Exception e) {
+            RespData data = new RespData();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
+        }
     }
 
     /**
@@ -159,12 +216,19 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespQueryWithdrawStatusBody QueryWithdrawStatus(ReqQueryWithdrawStatus reqQueryWithdrawStatus) {
-        String result = this.request("withdraw/status.php", reqQueryWithdrawStatus);
-        RespQueryWithdrawStatus res = JSON.parseObject(result, RespQueryWithdrawStatus.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            String result = this.request("withdraw/status.php", reqQueryWithdrawStatus);
+            RespQueryWithdrawStatus res = JSON.parseObject(result, RespQueryWithdrawStatus.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespQueryWithdrawStatusBody data = new RespQueryWithdrawStatusBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 
@@ -175,12 +239,19 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespQueryWithdrawHistoryBody QueryWithdrawHistory(ReqQueryWithdrawHistory reqQueryWithdrawHistory) {
-        String result = this.request("withdraw/history.php", reqQueryWithdrawHistory);
-        RespQueryWithdrawHistory res = JSON.parseObject(result, RespQueryWithdrawHistory.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            String result = this.request("withdraw/history.php", reqQueryWithdrawHistory);
+            RespQueryWithdrawHistory res = JSON.parseObject(result, RespQueryWithdrawHistory.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespQueryWithdrawHistoryBody data = new RespQueryWithdrawHistoryBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 
@@ -191,9 +262,16 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespData WithdrawCancel(ReqWithdrawCancel reqWithdrawCancel) {
-        String result = this.request("withdraw/cancel.php", reqWithdrawCancel);
-        Resp res = JSON.parseObject(result, Resp.class);
-        return res.getData();
+        try {
+            String result = this.request("withdraw/cancel.php", reqWithdrawCancel);
+            Resp res = JSON.parseObject(result, Resp.class);
+            return res.getData();
+        } catch (Exception e) {
+            RespData data = new RespData();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
+        }
     }
 
     /**
@@ -203,12 +281,19 @@ public class Route extends com.safecustody.sdk.Request {
      * @return
      */
     public RespBlockHeightBody BlockHeight(ReqBlockHeight reqBlockHeight) {
-        String result = this.request("blockheight.php", reqBlockHeight);
-        RespBlockHeight res = JSON.parseObject(result, RespBlockHeight.class);
-        if (res.getData().getEno() != API_SUCC_CODE) {
-            res.getData().setData(null);
+        try {
+            String result = this.request("blockheight.php", reqBlockHeight);
+            RespBlockHeight res = JSON.parseObject(result, RespBlockHeight.class);
+            if (res.getData().getEno() != API_SUCC_CODE) {
+                res.getData().setData(null);
+            }
+            return res.getData();
+        } catch (Exception e) {
+            RespBlockHeightBody data = new RespBlockHeightBody();
+            data.setEmsg(e.getMessage());
+            data.setEno(SDK_ERROE);
+            return data;
         }
-        return res.getData();
     }
 
 

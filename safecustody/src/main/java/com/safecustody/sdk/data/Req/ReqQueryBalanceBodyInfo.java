@@ -2,8 +2,6 @@ package com.safecustody.sdk.data.Req;
 
 import com.safecustody.sdk.data.comm.ReqData;
 
-import java.util.HashSet;
-
 public class ReqQueryBalanceBodyInfo extends ReqData {
     /**
      * 链名

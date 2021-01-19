@@ -20,18 +20,18 @@ public class example {
         User user = new User();
 
         //对应商户后台APPID
-        user.setAppid("");
+        user.setAppid("dbd7bfa63e54b66954ac8c0ccb291300da83a182bf038fd2161fa9cabecc850d");
 
         //对应商户后SECRETKEY
         //用来加密token的私钥
-        user.setSecretKey("");
+        user.setSecretKey("b473acb91abec78ff6adfc7f7c2a83b710ddc013c99248631b53be3dd8ba9972db1a6cb57800df511e70aaa806684eec13f334d15ee1cc41754bc38438313aee");
 
         //对应的商户后台的商户id
-        user.setUserid("");
+        user.setUserid("1");
 
         //对应商户后台APIKEY
         //api访问公钥
-        user.setApiKey("");
+        user.setApiKey("dbd7bfa63e54b66954ac8c0ccb291300da83a182bf038fd2161fa9cabecc850d");
 
         ///////////////
         ///////////////
@@ -41,7 +41,7 @@ public class example {
         Sdk sdk = new Sdk(user);
 
         //TODO 请向微信群的官方人员获取
-        sdk.setHost("");
+        sdk.setHost("https://www.safecustoday.vip/");
 
         //////////////////////////////
         ///////以下是请求的方法/////////
@@ -56,9 +56,11 @@ public class example {
         queryCoin.setCoin("btc");
         //TODO 调用api
         RespQueryCoinBody respQueryCoinBody = sdk.QueryCoinConf(queryCoin);
-        //TODO 判断错误
-        if (respQueryCoinBody.getEmsg().equals("") || respQueryCoinBody.getEno() == 0) {
+
+        //TODO 错误
+        if (!respQueryCoinBody.getEmsg().equals("") || respQueryCoinBody.getEno() != 0) {
             System.out.println(respQueryCoinBody.getEmsg());
+            return;
         }
         //输出字符串
         System.out.println(JSON.toJSONString(respQueryCoinBody));
@@ -69,9 +71,10 @@ public class example {
 
         //TODO 调用api
         RespQueryCoinBody respQueryCoinBodys = sdk.QueryCoin();
-        //TODO 判断错误
-        if (respQueryCoinBodys.getEmsg().equals("") || respQueryCoinBodys.getEno() == 0) {
+        //TODO 错误
+        if (!respQueryCoinBodys.getEmsg().equals("") || respQueryCoinBodys.getEno() != 0) {
             System.out.println(respQueryCoinBodys.getEmsg());
+            return;
         }
 //      输出字符串
         System.out.println(JSON.toJSONString(respQueryCoinBodys));
@@ -94,9 +97,10 @@ public class example {
 
         //TODO 调用api
         RespQueryBalanceBody respQueryBalanceBody = sdk.QueryBalance(balance);
-        //TODO 判断错误
-        if (respQueryBalanceBody.getEmsg().equals("") || respQueryBalanceBody.getEno() == 0) {
+        //TODO 错误
+        if (!respQueryBalanceBody.getEmsg().equals("") || respQueryBalanceBody.getEno() != 0) {
             System.out.println(respQueryBalanceBody.getEmsg());
+            return;
         }
         //输出字符串
         System.out.println(JSON.toJSONString(respQueryBalanceBody));
@@ -115,9 +119,10 @@ public class example {
 
         //TODO 调用api
         RespGetDepositAddrBody respGetDepositAddrBody = sdk.GetDepositAddr(reqGetDepositAddrBodyInfoHashSet);
-        //TODO 判断错误
-        if (respGetDepositAddrBody.getEmsg().equals("") || respGetDepositAddrBody.getEno() == 0) {
+        //TODO 错误
+        if (!respGetDepositAddrBody.getEmsg().equals("") || respGetDepositAddrBody.getEno() != 0) {
             System.out.println(respGetDepositAddrBody.getEmsg());
+            return;
         }
         //输出字符串
         System.out.println(JSON.toJSONString(respGetDepositAddrBody));
@@ -136,9 +141,10 @@ public class example {
 
         //TODO 调用api
         RespGetDepositHistoryBody respGetDepositHistoryBody = sdk.GetDepositHistory(reqGetDepositHistory);
-        //TODO 判断错误
-        if (respGetDepositHistoryBody.getEmsg().equals("") || respGetDepositHistoryBody.getEno() == 0) {
+        //TODO 错误
+        if (!respGetDepositHistoryBody.getEmsg().equals("") || respGetDepositHistoryBody.getEno() != 0) {
             System.out.println(respGetDepositHistoryBody.getEmsg());
+            return;
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respGetDepositHistoryBody));
@@ -154,9 +160,10 @@ public class example {
         reqQueryIsInternalAddr.setCoin("trx");
 //        TODO 调用api
         RespQueryIsInternalAddrBody respQueryIsInternalAddrBody = sdk.QueryIsInternalAddr(reqQueryIsInternalAddr);
-//        TODO 判断错误
-        if (respQueryIsInternalAddrBody.getEmsg().equals("") || respQueryIsInternalAddrBody.getEno() == 0) {
+//        TODO 错误
+        if (!respQueryIsInternalAddrBody.getEmsg().equals("") || respQueryIsInternalAddrBody.getEno() != 0) {
             System.out.println(respQueryIsInternalAddrBody.getEmsg());
+            return;
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respQueryIsInternalAddrBody));
@@ -177,9 +184,10 @@ public class example {
 
         //TODO 调用api
         RespSubmitWithdrawBody respSubmitWithdrawBody = sdk.SubmitWithdraw(reqSubmitWithdraw1);
-        //TODO 判断错误
-        if (respSubmitWithdrawBody.getEmsg().equals("") || respSubmitWithdrawBody.getEno() == 0) {
+        //TODO 错误
+        if (!respSubmitWithdrawBody.getEmsg().equals("") || respSubmitWithdrawBody.getEno() != 0) {
             System.out.println(respSubmitWithdrawBody.getEmsg());
+            return;
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respSubmitWithdrawBody));
@@ -189,7 +197,7 @@ public class example {
         //提币预校验接口
         //------------
         ReqSubmitWithdraw reqSubmitWithdraw2 = new ReqSubmitWithdraw();
-        reqSubmitWithdraw2.setAddr("");
+        reqSubmitWithdraw2.setAddr("2N2ggMSEuvHpHLKBpSJsuyX5zY8Ec16eQBc");
         reqSubmitWithdraw2.setAmount("0.01");
         reqSubmitWithdraw2.setChain("trx");
         reqSubmitWithdraw2.setCoin("trx");
@@ -198,11 +206,12 @@ public class example {
         reqSubmitWithdraw2.setSubuserid("26");
         //TODO 调用api
         RespData respData = sdk.ValidateWithdraw(reqSubmitWithdraw2);
-        //TODO 判断错误
-        if (respData.getEmsg().equals("") || respData.getEno() == 0) {
+        //TODO 错误
+        if (!respData.getEmsg().equals("") || respData.getEno() != 0) {
             System.out.println(respData.getEmsg());
+            return;
         }
-//        输出字符串
+        //        输出字符串
         System.out.println(JSON.toJSONString(respData));
 
 
@@ -215,9 +224,10 @@ public class example {
         reqQueryWithdrawStatus.setWithdrawid(1000);
         //TODO 调用api
         RespQueryWithdrawStatusBody respQueryWithdrawStatusBody = sdk.QueryWithdrawStatus(reqQueryWithdrawStatus);
-        //TODO 判断错误
-        if (respQueryWithdrawStatusBody.getEmsg().equals("") || respQueryWithdrawStatusBody.getEno() == 0) {
+        //TODO 错误
+        if (!respQueryWithdrawStatusBody.getEmsg().equals("") || respQueryWithdrawStatusBody.getEno() != 0) {
             System.out.println(respQueryWithdrawStatusBody.getEmsg());
+            return;
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respQueryWithdrawStatusBody));
@@ -235,9 +245,10 @@ public class example {
         reqQueryWithdrawHistory.setLimit(100);
         //TODO 调用api
         RespQueryWithdrawHistoryBody respQueryWithdrawHistoryBody = sdk.QueryWithdrawHistory(reqQueryWithdrawHistory);
-        //TODO 判断错误
-        if (respQueryWithdrawHistoryBody.getEmsg().equals("") || respQueryWithdrawHistoryBody.getEno() == 0) {
+        //TODO 错误
+        if (!respQueryWithdrawHistoryBody.getEmsg().equals("") || respQueryWithdrawHistoryBody.getEno() != 0) {
             System.out.println(respQueryWithdrawHistoryBody.getEmsg());
+            return;
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respQueryWithdrawHistoryBody));
@@ -254,9 +265,10 @@ public class example {
         reqWithdrawCancel.setWithdrawId(4009);
         //TODO 调用api
         RespData respData2 = sdk.WithdrawCancel(reqWithdrawCancel);
-        //TODO 判断错误
-        if (respData2.getEmsg().equals("") || respData2.getEno() == 0) {
+        //TODO 错误
+        if (!respData2.getEmsg().equals("") || respData2.getEno() != 0) {
             System.out.println(respData2.getEmsg());
+            return;
         }
 //        输出字符串
         System.out.println(JSON.toJSONString(respData2));
@@ -270,9 +282,10 @@ public class example {
         reqBlockHeight.setCoin("btc");
         //TODO 调用api
         RespBlockHeightBody respBlockHeightBody = sdk.BlockHeight(reqBlockHeight);
-        //TODO 判断错误
-        if (respBlockHeightBody.getEmsg().equals("") || respBlockHeightBody.getEno() == 0) {
+        //TODO 错误
+        if (!respBlockHeightBody.getEmsg().equals("") || respBlockHeightBody.getEno() != 0) {
             System.out.println(respBlockHeightBody.getEmsg());
+            return;
         }
         //        输出字符串
         System.out.println(JSON.toJSONString(respBlockHeightBody));

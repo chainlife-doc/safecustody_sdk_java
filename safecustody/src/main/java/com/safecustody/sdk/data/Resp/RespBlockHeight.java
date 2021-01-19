@@ -1,7 +1,5 @@
 package com.safecustody.sdk.data.Resp;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 public class RespBlockHeight {
     private RespBlockHeightBody data;
 

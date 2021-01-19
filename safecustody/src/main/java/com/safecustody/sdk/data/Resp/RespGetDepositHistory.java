@@ -1,7 +1,5 @@
 package com.safecustody.sdk.data.Resp;
 
-import java.util.List;
-
 public class RespGetDepositHistory {
     private RespGetDepositHistoryBody data;
 
