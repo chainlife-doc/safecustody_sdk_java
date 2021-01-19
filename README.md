@@ -65,11 +65,13 @@ queryCoin.setCoin("btc");
 //请求接口
 RespQueryCoinBody respQueryCoinBody = sdk.QueryCoinConf(queryCoin);
 
-if (respQueryCoinBody.getEmsg().equals("") || respQueryCoinBody.getEno() == 0) {
-    System.out.println(respQueryCoinBody.getEmsg());
-}
-
-System.out.println(JSON.toJSONString(respQueryCoinBody));
+//TODO 错误                                                                         
+if (!respQueryCoinBody.getEmsg().equals("") || respQueryCoinBody.getEno() != 0) { 
+    System.out.println(respQueryCoinBody.getEmsg());                              
+    return;                                                                       
+}                                                                                 
+//输出字符串                                                                           
+System.out.println(JSON.toJSONString(respQueryCoinBody));                         
 ```
 
 #### [查询全部币种](https://github.com/chainlife-doc/wallet-api/blob/master/%E6%9F%A5%E8%AF%A2%E5%B8%81%E7%A7%8D%E4%BF%A1%E6%81%AF.md)
@@ -77,11 +79,13 @@ System.out.println(JSON.toJSONString(respQueryCoinBody));
 //请求接口
 RespQueryCoinBody respQueryCoinBodys = sdk.QueryCoin();
 
-if (respQueryCoinBodys.getEmsg().equals("") || respQueryCoinBodys.getEno() == 0) {
-    System.out.println(respQueryCoinBodys.getEmsg());
-}
-
-System.out.println(JSON.toJSONString(respQueryCoinBodys));
+//TODO 错误                                                                           
+if (!respQueryCoinBodys.getEmsg().equals("") || respQueryCoinBodys.getEno() != 0) { 
+    System.out.println(respQueryCoinBodys.getEmsg());                               
+    return;                                                                         
+}                                                                                   
+//输出字符串                                                                             
+System.out.println(JSON.toJSONString(respQueryCoinBodys));                          
 ```
 
 #### [查询余额](https://github.com/chainlife-doc/wallet-api/blob/master/%E6%9F%A5%E8%AF%A2%E4%BD%99%E9%A2%9D.md)
@@ -107,11 +111,13 @@ balance.add(reqQueryBalanceBodyInfo2);
 //请求接口
 RespQueryBalanceBody respQueryBalanceBody = sdk.QueryBalance(balance);
 
-if (respQueryBalanceBody.getEmsg().equals("") || respQueryBalanceBody.getEno() == 0) {
-    System.out.println(respQueryBalanceBody.getEmsg());
-}
-
-System.out.println(JSON.toJSONString(respQueryBalanceBody));
+//TODO 错误                                                                               
+if (!respQueryBalanceBody.getEmsg().equals("") || respQueryBalanceBody.getEno() != 0) { 
+    System.out.println(respQueryBalanceBody.getEmsg());                                 
+    return;                                                                             
+}                                                                                       
+//输出字符串                                                                                 
+System.out.println(JSON.toJSONString(respQueryBalanceBody));                            
 ```
 
 #### [获取充值地址](https://github.com/chainlife-doc/wallet-api/blob/master/deposit/%E8%8E%B7%E5%8F%96%E5%85%85%E5%80%BC%E5%9C%B0%E5%9D%80.md)
@@ -132,11 +138,13 @@ reqGetDepositAddrBodyInfoHashSet.add(reqGetDepositAddrBodyInfo);
 //请求接口
 RespGetDepositAddrBody respGetDepositAddrBody = sdk.GetDepositAddr(reqGetDepositAddrBodyInfoHashSet);
 
-if (respGetDepositAddrBody.getEmsg().equals("") || respGetDepositAddrBody.getEno() == 0) { 
-    System.out.println(respGetDepositAddrBody.getEmsg());                                  
-}                                                                                          
-
-System.out.println(JSON.toJSONString(respGetDepositAddrBody));
+ //TODO 错误                                                                                        
+ if (!respGetDepositAddrBody.getEmsg().equals("") || respGetDepositAddrBody.getEno() != 0) {      
+     System.out.println(respGetDepositAddrBody.getEmsg());                                        
+     return;                                                                                      
+ }                                                                                                
+ //输出字符串                                                                                          
+ System.out.println(JSON.toJSONString(respGetDepositAddrBody));                                   
 ```
 
 #### [获取充值记录](https://github.com/chainlife-doc/wallet-api/blob/master/deposit/%E8%8E%B7%E5%8F%96%E5%85%85%E5%80%BC%E8%AE%B0%E5%BD%95.md)
@@ -152,11 +160,13 @@ reqGetDepositHistory.setSubuserid("26");
 //请求接口
 RespGetDepositHistoryBody respGetDepositHistoryBody = sdk.GetDepositHistory(reqGetDepositHistory);
 
-if (respGetDepositHistoryBody.getEmsg().equals("") || respGetDepositHistoryBody.getEno() == 0) {     
-    System.out.println(respGetDepositHistoryBody.getEmsg());                                         
-}                                                                                                    
-
-System.out.println(JSON.toJSONString(respGetDepositHistoryBody));
+//TODO 错误                                                                                           
+if (!respGetDepositHistoryBody.getEmsg().equals("") || respGetDepositHistoryBody.getEno() != 0) {   
+    System.out.println(respGetDepositHistoryBody.getEmsg());                                        
+    return;                                                                                         
+}                                                                                                   
+//输出字符串                                                                                             
+System.out.println(JSON.toJSONString(respGetDepositHistoryBody));                                   
 ```
 
 #### [内部地址查询](https://github.com/chainlife-doc/wallet-api/blob/master/internal-addr/%E5%86%85%E9%83%A8%E5%9C%B0%E5%9D%80%E6%9F%A5%E8%AF%A2.md)
@@ -172,11 +182,13 @@ reqQueryIsInternalAddr.setCoin("trx");
 //请求接口
 RespQueryIsInternalAddrBody respQueryIsInternalAddrBody = sdk.QueryIsInternalAddr(reqQueryIsInternalAddr);
 
-if (respQueryIsInternalAddrBody.getEmsg().equals("") || respQueryIsInternalAddrBody.getEno() == 0) {    
+//TODO 错误
+if (!respQueryIsInternalAddrBody.getEmsg().equals("") || respQueryIsInternalAddrBody.getEno() != 0) {   
     System.out.println(respQueryIsInternalAddrBody.getEmsg());                                          
+    return;                                                                                             
 }                                                                                                       
-
-System.out.println(JSON.toJSONString(respQueryIsInternalAddrBody)); 
+//输出字符串                                                                                                 
+System.out.println(JSON.toJSONString(respQueryIsInternalAddrBody));                                     
 ```
 
 #### [提交提币工单](https://github.com/chainlife-doc/wallet-api/blob/master/withdraw/%E6%8F%90%E4%BA%A4%E6%8F%90%E5%B8%81%E5%B7%A5%E5%8D%95.md)
@@ -201,11 +213,13 @@ reqSubmitWithdraw1.setUserOrderid("26");
 //请求接口
 RespSubmitWithdrawBody respSubmitWithdrawBody = sdk.SubmitWithdraw(reqSubmitWithdraw1);
 
-if (respSubmitWithdrawBody.getEmsg().equals("") || respSubmitWithdrawBody.getEno() == 0) {    
-    System.out.println(respSubmitWithdrawBody.getEmsg());                                     
-}                                                                                             
-
-System.out.println(JSON.toJSONString(respSubmitWithdrawBody)); 
+//TODO 错误                                                                                    
+if (!respSubmitWithdrawBody.getEmsg().equals("") || respSubmitWithdrawBody.getEno() != 0) {  
+    System.out.println(respSubmitWithdrawBody.getEmsg());                                    
+    return;                                                                                  
+}                                                                                            
+//输出字符串                                                                                      
+System.out.println(JSON.toJSONString(respSubmitWithdrawBody));                               
 ```
 
 #### [提币预校验](https://github.com/chainlife-doc/wallet-api/blob/master/withdraw/%E6%8F%90%E5%B8%81%E9%A2%84%E6%A0%A1%E9%AA%8C%E6%8E%A5%E5%8F%A3.md)
@@ -230,11 +244,13 @@ reqSubmitWithdraw1.setUserOrderid("26");
 //请求接口
 RespData respData = sdk.ValidateWithdraw(reqSubmitWithdraw2);
 
-if (respData.getEmsg().equals("") || respData.getEno() == 0) {   
-    System.out.println(respData.getEmsg());                      
-}                                                                
-
-System.out.println(JSON.toJSONString(respData));
+//TODO 错误
+if (!respData.getEmsg().equals("") || respData.getEno() != 0) {    
+     System.out.println(respData.getEmsg());                        
+     return;                                                        
+ }                                                                  
+ //输出字符串                                                    
+ System.out.println(JSON.toJSONString(respData));                   
 ```
 
 #### [查询工单状态](https://github.com/chainlife-doc/wallet-api/blob/master/withdraw/%E6%9F%A5%E8%AF%A2%E6%8F%90%E5%B8%81%E5%B7%A5%E5%8D%95%E7%8A%B6%E6%80%81.md)
@@ -250,11 +266,13 @@ reqQueryWithdrawStatus.setWithdrawid(1000);
 //请求接口
 RespQueryWithdrawStatusBody respQueryWithdrawStatusBody = sdk.QueryWithdrawStatus(reqQueryWithdrawStatus); 
 
-if (respQueryWithdrawStatusBody.getEmsg().equals("") || respQueryWithdrawStatusBody.getEno() == 0) {   
-    System.out.println(respQueryWithdrawStatusBody.getEmsg());                                         
-}                                                                                                      
-
-System.out.println(JSON.toJSONString(respQueryWithdrawStatusBody)); 
+//TODO 错误                                                                                             
+if (!respQueryWithdrawStatusBody.getEmsg().equals("") || respQueryWithdrawStatusBody.getEno() != 0) { 
+    System.out.println(respQueryWithdrawStatusBody.getEmsg());                                        
+    return;                                                                                           
+}                                                                                                     
+//输出字符串                                                                                               
+System.out.println(JSON.toJSONString(respQueryWithdrawStatusBody));                                   
 ```
 
 #### [查询历史提币记录](https://github.com/chainlife-doc/wallet-api/blob/master/withdraw/%E6%9F%A5%E8%AF%A2%E6%8F%90%E5%B8%81%E8%AE%B0%E5%BD%95.md)
@@ -274,11 +292,13 @@ reqQueryWithdrawHistory.setLimit(100);
 //请求接口
 RespQueryWithdrawHistoryBody respQueryWithdrawHistoryBody = sdk.QueryWithdrawHistory(reqQueryWithdrawHistory);
 
-if (respQueryWithdrawHistoryBody.getEmsg().equals("") || respQueryWithdrawHistoryBody.getEno() == 0) {  
-    System.out.println(respQueryWithdrawHistoryBody.getEmsg());                                         
-}                                                                                                       
-
-System.out.println(JSON.toJSONString(respQueryWithdrawHistoryBody)); 
+//TODO 错误                                                                                                
+if (!respQueryWithdrawHistoryBody.getEmsg().equals("") || respQueryWithdrawHistoryBody.getEno() != 0) {  
+    System.out.println(respQueryWithdrawHistoryBody.getEmsg());                                          
+    return;                                                                                              
+}                                                                                                        
+//输出字符串                                                                                                  
+System.out.println(JSON.toJSONString(respQueryWithdrawHistoryBody));                                     
 ```
 
 #### [取消提币接口](https://github.com/chainlife-doc/wallet-api/blob/master/withdraw/%E5%8F%96%E6%B6%88%E6%8F%90%E5%B8%81%E6%8E%A5%E5%8F%A3.md)
@@ -296,25 +316,28 @@ reqWithdrawCancel.setWithdrawId(1000);
 //请求接口
 RespData respData2 = sdk.WithdrawCancel(reqWithdrawCancel);
 
-if (respData2.getEmsg().equals("") || respData2.getEno() == 0) {
-       System.out.println(respData2.getEmsg());
-}
-
-System.out.println(JSON.toJSONString(respData2));
+//TODO 错误                                                          
+if (!respData2.getEmsg().equals("") || respData2.getEno() != 0) {  
+    System.out.println(respData2.getEmsg());                       
+    return;                                                        
+}                                                                  
+//输出字符串                                                            
+System.out.println(JSON.toJSONString(respData2));                  
 ```
 
 
 #### [查询区块高度](https://github.com/chainlife-doc/wallet-api/blob/master/%E6%9F%A5%E8%AF%A2%E5%B8%81%E7%A7%8D%E8%8A%82%E7%82%B9%E9%AB%98%E5%BA%A6.md)
 ```java
-        ReqBlockHeight reqBlockHeight = new ReqBlockHeight();
-        reqBlockHeight.setChain("btc");
-        reqBlockHeight.setCoin("btc");
-        //TODO 调用api
-        RespBlockHeightBody respBlockHeightBody = sdk.BlockHeight(reqBlockHeight);
-        //TODO 判断错误
-        if (respBlockHeightBody.getEmsg().equals("") || respBlockHeightBody.getEno() == 0) {
-            System.out.println(respBlockHeightBody.getEmsg());
-        }
-        //        输出字符串
-        System.out.println(JSON.toJSONString(respBlockHeightBody));
+ReqBlockHeight reqBlockHeight = new ReqBlockHeight();
+reqBlockHeight.setChain("btc");
+reqBlockHeight.setCoin("btc");
+//TODO 调用api
+RespBlockHeightBody respBlockHeightBody = sdk.BlockHeight(reqBlockHeight);
+//TODO 错误                                                                               
+if (!respBlockHeightBody.getEmsg().equals("") || respBlockHeightBody.getEno() != 0) {   
+    System.out.println(respBlockHeightBody.getEmsg());                                  
+    return;                                                                             
+}                                                                                       
+//输出字符串                                                                         
+System.out.println(JSON.toJSONString(respBlockHeightBody));                             
 ```

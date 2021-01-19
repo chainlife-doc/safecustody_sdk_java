@@ -76,7 +76,7 @@ public class example {
             System.out.println(respQueryCoinBodys.getEmsg());
             return;
         }
-//      输出字符串
+        //输出字符串
         System.out.println(JSON.toJSONString(respQueryCoinBodys));
 
 
@@ -146,7 +146,7 @@ public class example {
             System.out.println(respGetDepositHistoryBody.getEmsg());
             return;
         }
-//        输出字符串
+        //输出字符串
         System.out.println(JSON.toJSONString(respGetDepositHistoryBody));
 
 
@@ -160,12 +160,12 @@ public class example {
         reqQueryIsInternalAddr.setCoin("trx");
 //        TODO 调用api
         RespQueryIsInternalAddrBody respQueryIsInternalAddrBody = sdk.QueryIsInternalAddr(reqQueryIsInternalAddr);
-//        TODO 错误
+        //TODO 错误
         if (!respQueryIsInternalAddrBody.getEmsg().equals("") || respQueryIsInternalAddrBody.getEno() != 0) {
             System.out.println(respQueryIsInternalAddrBody.getEmsg());
             return;
         }
-//        输出字符串
+        //输出字符串
         System.out.println(JSON.toJSONString(respQueryIsInternalAddrBody));
 
 
@@ -189,7 +189,7 @@ public class example {
             System.out.println(respSubmitWithdrawBody.getEmsg());
             return;
         }
-//        输出字符串
+        //输出字符串
         System.out.println(JSON.toJSONString(respSubmitWithdrawBody));
 
 
@@ -229,7 +229,7 @@ public class example {
             System.out.println(respQueryWithdrawStatusBody.getEmsg());
             return;
         }
-//        输出字符串
+        //输出字符串
         System.out.println(JSON.toJSONString(respQueryWithdrawStatusBody));
 
 
@@ -250,7 +250,7 @@ public class example {
             System.out.println(respQueryWithdrawHistoryBody.getEmsg());
             return;
         }
-//        输出字符串
+        //输出字符串
         System.out.println(JSON.toJSONString(respQueryWithdrawHistoryBody));
 
 
@@ -270,7 +270,7 @@ public class example {
             System.out.println(respData2.getEmsg());
             return;
         }
-//        输出字符串
+        //输出字符串
         System.out.println(JSON.toJSONString(respData2));
 
 
