@@ -7,7 +7,7 @@
     <groupId>pro.safeworld</groupId>
     <artifactId>safeworld</artifactId>
     <version>1.0.0@dev</version>
-
+    <description>wallet-api-sdk</description>
     <name>safeworld</name>
     <!-- FIXME change it to the project's website -->
     <url>https://github.com/chainlife-doc/safecustody_sdk_java</url>
