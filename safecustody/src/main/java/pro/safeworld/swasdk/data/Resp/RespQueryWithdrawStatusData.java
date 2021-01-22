@@ -87,6 +87,10 @@ public class RespQueryWithdrawStatusData {
      */
     private String txid;
 
+    /**
+     * 交易高度
+     */
+    private String height;
 
     /**
      * 用户标签
@@ -354,4 +358,19 @@ public class RespQueryWithdrawStatusData {
     public void setUserOrderid(String userOrderid) {
         this.userOrderid = userOrderid;
     }
+
+    /**
+     * @return String
+     */
+    public String getHeight() {
+        return height;
+    }
+
+    /**
+     * @param height String
+     */
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
 }
