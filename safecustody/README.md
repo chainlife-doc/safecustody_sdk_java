@@ -3,25 +3,22 @@
 ### 安装SDK
 
 
-> 下载源码包,把`com`文件夹放入项目中  
-> 可能需要在`pom.xml`引入下面依赖 `import com.alibaba.fastjson.JSON;`
+> 在`pom.xml`引入下面依赖 
 ```
-<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
 <dependency>
-  <groupId>com.alibaba</groupId>
-  <artifactId>fastjson</artifactId>
-  <version>1.2.47</version>
+  <groupId>pro.safeworld</groupId>
+  <artifactId>swasdk</artifactId>
+  <version>2.0.0</version>
 </dependency>
 ```
-    
+
+> 代码导入 `import pro.safeworld.swasdk.*;`  
 # 例子
 
 #### 创建sdkApi
  ```java             
 import com.alibaba.fastjson.JSON;
-import com.safecustody.sdk.Sdk;
-import com.safecustody.sdk.User;
-import com.safecustody.sdk.data.Resp.RespQueryCoinBody;
+import pro.safeworld.swasdk.*;
 
 public class App {
     public static void main(String[] args) {
