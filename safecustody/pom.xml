@@ -6,7 +6,7 @@
 
     <groupId>pro.safeworld</groupId>
     <artifactId>swasdk</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
     <description>wallet-api-sdk</description>
     <name>swasdk</name>
     <!-- FIXME change it to the project's website -->
