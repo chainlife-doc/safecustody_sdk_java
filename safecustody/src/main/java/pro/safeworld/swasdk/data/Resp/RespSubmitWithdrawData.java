@@ -71,6 +71,11 @@ public class RespSubmitWithdrawData {
 
 
     /**
+     * 提币数量
+     */
+    private String amount;
+
+    /**
      * 状态描述
      */
     @JSONField(name = "status_desc")
@@ -445,5 +450,13 @@ public class RespSubmitWithdrawData {
      */
     public void setFeeCoinChain(String feeCoinChain) {
         this.feeCoinChain = feeCoinChain;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 }

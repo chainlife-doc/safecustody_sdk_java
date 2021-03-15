@@ -87,6 +87,13 @@ public class RespQueryWithdrawStatusData {
      */
     private String txid;
 
+
+    /**
+     * 充值数量
+     */
+    private String amount;
+
+
     /**
      * 交易高度
      */
@@ -373,4 +380,11 @@ public class RespQueryWithdrawStatusData {
         this.height = height;
     }
 
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
 }
